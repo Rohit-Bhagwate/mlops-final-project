@@ -10,9 +10,9 @@ import os
 import boto3
 import pickle
 
+
+mlflow.set_tracking_uri("http://3.111.215.111:5000")
 mlflow.set_experiment("churn_simple")
-
-
 def train_model(data_path):
 
     df = pd.read_csv(data_path)
