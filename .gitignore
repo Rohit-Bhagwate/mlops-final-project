@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+mlruns/
+.env
+model.joblib
+*.pkl
+.idea/
+mlflow.db
+model.tar.gz
+temp_model/
+model/
