@@ -12,9 +12,9 @@ import pickle
 
 
 mlflow.set_tracking_uri("http://3.111.215.111:5000")
-mlflow.set_experiment("churn_simple")
-def train_model(data_path):
 
+def train_model(data_path):
+    mlflow.set_experiment("churn_simple")
     df = pd.read_csv(data_path)
 
     # -----------------------
