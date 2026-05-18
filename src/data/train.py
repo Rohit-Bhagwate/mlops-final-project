@@ -11,7 +11,7 @@ import boto3
 import pickle
 
 
-mlflow.set_tracking_uri("http://3.111.215.111:5000")
+#mlflow.set_tracking_uri("http://:5000")
 
 def train_model(data_path):
     mlflow.set_experiment("churn_simple")
@@ -89,5 +89,7 @@ def train_model(data_path):
         )
 
         print("Uploaded model to S3")
-
+    print(os.path.abspath(__file__))
+    print(BASE_DIR)
     return model_path
+

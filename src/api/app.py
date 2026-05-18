@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 app = FastAPI()
 # Load model
-model = joblib.load("src/model/model.joblib")
+model = joblib.load("model.pkl")
 @app.get("/")
 def home():
     return {"message": "Churn API running"}

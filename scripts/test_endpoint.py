@@ -1,7 +1,7 @@
 import boto3
 import json
 runtime = boto3.client("sagemaker-runtime")
-endpoint_name = "sagemaker-scikit-learn-2026-05-14-10-19-31-099"
+endpoint_name = "sagemaker-scikit-learn-2026-05-18-07-00-46-207"
 payload = {
     "gender": "Female",
     "SeniorCitizen": 0,
