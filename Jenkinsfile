@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-```
 stages {
 
     stage('Clean Old Docker') {
@@ -43,6 +42,5 @@ post {
         echo 'Pipeline failed!'
     }
 }
-```
 
 }
