@@ -3,24 +3,28 @@ pipeline {
 
     stages {
 
-        stage('Install Dependencies') {
+        stage('Clean Old Docker') {
             steps {
                 sh '''
-                python3.10 -m venv venv
-                . venv/bin/activate
-
-                pip install --upgrade pip
-                pip install -r requirements.txt
+                sudo docker rm -f churn-container || true
+                sudo docker rmi churn-app || true
+                sudo docker system prune -af || true
                 '''
             }
         }
 
-        stage('Run Pipeline') {
+        stage('Build Docker Image') {
             steps {
                 sh '''
-                . venv/bin/activate
+                sudo docker build -t churn-app .
+                '''
+            }
+        }
 
-                python3 -m src.pipeline.pipeline
+        stage('Run Docker Container') {
+            steps {
+                sh '''
+                sudo docker run --name churn-container --rm churn-app
                 '''
             }
         }
