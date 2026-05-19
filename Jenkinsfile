@@ -6,9 +6,9 @@ pipeline {
         stage('Clean Old Docker') {
             steps {
                 sh '''
-                sudo docker rm -f churn-container || true
-                sudo docker rmi churn-app || true
-                sudo docker system prune -af || true
+                docker rm -f churn-container || true
+                docker rmi churn-app || true
+                docker system prune -af || true
                 '''
             }
         }
@@ -16,7 +16,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                sudo docker build -t churn-app .
+                docker build -t churn-app .
                 '''
             }
         }
@@ -24,7 +24,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 sh '''
-                sudo docker run --name churn-container --rm churn-app
+                docker run --name churn-container churn-app
                 '''
             }
         }

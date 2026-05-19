@@ -11,7 +11,7 @@ import boto3
 import pickle
 
 
-#mlflow.set_tracking_uri("http://13.126.138.113:5000")
+#mlflow.set_tracking_uri("http://3.110.106.86:5000")
 
 def train_model(data_path):
     mlflow.set_experiment("churn_simple")
