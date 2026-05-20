@@ -5,7 +5,7 @@ pipeline {
     environment {
         AWS_ACCOUNT_ID = "232932848445"
         AWS_DEFAULT_REGION = "ap-south-1"
-        IMAGE_REPO_NAME = "churn-app"
+        IMAGE_REPO_NAME = "churn-api"
         IMAGE_TAG = "latest"
     }
 
@@ -44,7 +44,7 @@ pipeline {
         stage('Tag Docker Image') {
             steps {
                 sh '''
-                docker tag churn-app:latest 232932848445.dkr.ecr.ap-south-1.amazonaws.com/churn-app:latest
+                docker tag churn-app:latest 232932848445.dkr.ecr.ap-south-1.amazonaws.com/churn-api:latest
                 '''
             }
         }
@@ -52,7 +52,7 @@ pipeline {
         stage('Push Docker Image to ECR') {
             steps {
                 sh '''
-                docker push 232932848445.dkr.ecr.ap-south-1.amazonaws.com/churn-app:latest
+                docker push 232932848445.dkr.ecr.ap-south-1.amazonaws.com/churn-api:latest
                 '''
             }
         }
