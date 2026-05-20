@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-```
 environment {
     AWS_ACCOUNT_ID = "232932848445"
     AWS_REGION = "ap-south-1"
