@@ -24,7 +24,11 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                docker build -t churn-app .
+                docker build \
+                --build-arg AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id) \
+                --build-arg AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key) \
+                --build-arg AWS_DEFAULT_REGION=ap-south-1 \
+                -t churn-app .
                 '''
             }
         }
